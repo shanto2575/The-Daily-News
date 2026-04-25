@@ -4,12 +4,23 @@ import Link from 'next/link';
 import { CiShare2 } from 'react-icons/ci';
 import { FaArrowRight, FaEye, FaRegBookmark, FaStar } from 'react-icons/fa';
 
+export const generateMetadata = async ({ params }) => {
+    const { id } = await params;
+    // console.log(param)
+    const newsArray = await getNewsDetailsById(id)
+    console.log(newsArray)
+    const news = newsArray.find(item => item._id === id);
+    return {
+        title: news.title,
+        description: news.details,
+    };
+}
 
 const DetailsPages = async ({ params }) => {
     const { id } = await params;
     // console.log(id)
     const news = await getNewsDetailsById(id)
-    console.log(news)
+    // console.log(news)
     return (
         <div>
             <div>

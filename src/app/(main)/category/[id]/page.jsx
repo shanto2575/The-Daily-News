@@ -2,7 +2,8 @@ import LeftSidebar from "@/Components/HomePage/news/LeftSidebar";
 import NewsCards from "@/Components/HomePage/news/NewsCards";
 import RightSidebar from "@/Components/HomePage/news/RightSidebar";
 import { getCategories, getNewsByCategoryId } from "@/lib/api/data";
-
+import Image from "next/image";
+import NoData from '@/assets/no-data.avif'
 
 const NewsCategoryPage = async ({ params }) => {
     const { id } = await params;
@@ -26,7 +27,10 @@ const NewsCategoryPage = async ({ params }) => {
                             news.map(n => {
                                 return <NewsCards key={n._id} news={n}></NewsCards>
                             })
-                        ) : <div className="text-center my-10 text-2xl font-bold">Data not Founded</div>
+                        ) : <>
+                        <Image src={NoData} width={600} height={600} alt='Swimming' className='rounded-3xl w-[50vh] mx-auto'/>
+                        <h2 className="text-center my-10 text-2xl font-bold">Data not Founded</h2>
+                        </>
                     }
                 </div>
             </div>

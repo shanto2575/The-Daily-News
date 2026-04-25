@@ -8,7 +8,7 @@ export const generateMetadata = async ({ params }) => {
     const { id } = await params;
     // console.log(param)
     const newsArray = await getNewsDetailsById(id)
-    console.log(newsArray)
+    // console.log(newsArray)
     const news = newsArray.find(item => item._id === id);
     return {
         title: news.title,
@@ -27,7 +27,6 @@ const DetailsPages = async ({ params }) => {
                 {
                     news.map((news, ind) => {
                         return <div key={ind} className='max-w-4xl mx-auto'>
-
                             <div className="card bg-base-100 shadow-sm">
                                 <div className="card-body">
                                     {/* Author Info */}

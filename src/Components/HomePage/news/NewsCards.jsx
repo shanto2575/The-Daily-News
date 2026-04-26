@@ -5,7 +5,7 @@ import { CiShare2 } from 'react-icons/ci'
 import { FaArrowRight, FaEye, FaRegBookmark, FaStar } from 'react-icons/fa'
 
 const NewsCards = ({ news }) => {
-    console.log(news)
+    // console.log(news)
     return (
         <div>
             <div className="card bg-base-100 shadow-sm">

@@ -3,7 +3,7 @@ import NewsCards from "@/Components/HomePage/news/NewsCards";
 import RightSidebar from "@/Components/HomePage/news/RightSidebar";
 import { getCategories, getNewsByCategoryId } from "@/lib/api/data";
 import Image from "next/image";
-import NoData from '@/assets/no-data.avif'
+import error from '@/assets/App-Error.png'
 
 const NewsCategoryPage = async ({ params }) => {
     const { id } = await params;
@@ -28,7 +28,7 @@ const NewsCategoryPage = async ({ params }) => {
                                 return <NewsCards key={n._id} news={n}></NewsCards>
                             })
                         ) : <>
-                        <Image src={NoData} width={600} height={600} alt='Swimming' className='rounded-3xl w-[50vh] mx-auto'/>
+                        <Image src={error} width={600} height={600} alt='Swimming' className='rounded-3xl w-[50vh] mx-auto'/>
                         <h2 className="text-center my-10 text-2xl font-bold">Data not Founded</h2>
                         </>
                     }

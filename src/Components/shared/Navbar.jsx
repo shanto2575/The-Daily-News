@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import user from '@/assets/user.png'
+import user from '@/assets/u.png'
 import NavLink from './NavLink'
 const Navbar = () => {
     return (
@@ -14,7 +14,7 @@ const Navbar = () => {
                 </ul>
                 <div className='flex items-center justify-between gap-3'>
                     <Image src={user} height={40} width={40} alt='user img'></Image>
-                    <button className='btn bg-purple-700 text-white'><Link href={'/login'}>Login</Link></button>
+                    <button className='btn bg-purple-700 text-white block'><Link href={'/login'} >Login</Link></button>
                 </div>
             </div>
         </div>

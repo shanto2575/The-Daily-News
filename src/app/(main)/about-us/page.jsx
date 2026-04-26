@@ -4,7 +4,7 @@ export const metadata = {
 };
 const AboutUsPage = () => {
     return (
-        <div>
+        <div className='container mx-auto'>
             <h2>About-US</h2>
         </div>
     )

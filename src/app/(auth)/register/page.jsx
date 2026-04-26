@@ -1,14 +1,35 @@
 'use client'
+import { authClient } from '@/lib/auth-client'
 import Link from 'next/link'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 const RegisterPage = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm()
-    const handleLoginForm = (data) => {
-        console.log(data,'data')
+    const handleLoginForm =async(datas) => {
+        // console.log(data,'data')
+        const {name,email,photo,password}=datas;
+
+
+        const {data,error}=await authClient.signUp.email({
+            name:name,
+            email:email,
+            photo:photo,
+            password:password,
+            callbackURL:'/'
+        })
+        console.log(data,error)
+        if(error){
+            toast.error(error.message)
+        }
+        if(data){
+            toast.success('SignUp Successful')
+        }
+
+
     }
-    console.log(errors,'error')
+    // console.log(errors,'error')
     return (
         <div className='container mx-auto flex items-center justify-center h-screen bg-slate-300'>
             <form onSubmit={handleSubmit(handleLoginForm)}>

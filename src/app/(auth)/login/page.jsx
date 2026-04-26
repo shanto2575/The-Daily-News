@@ -1,12 +1,27 @@
 'use client'
+import { authClient } from '@/lib/auth-client'
 import Link from 'next/link'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 const LoginPages = () => {
     const { register, handleSubmit,formState: { errors }, } = useForm()
-    const handleLoginForm = (data) => {
+    const handleLoginForm = async(data) => {
         // console.log(data,'data')
+        const {data:res,error}=await authClient.signIn.email({
+            email:data.email,
+            password:data.password,
+            rememberMe:true,
+            callbackURL:'/'
+        })
+        console.log(res,error)
+        if(error){
+            toast.error(error.message)
+        }
+        if(res){
+            toast.success('Login Successful')
+        }
     }
     // console.log(errors,'error')
     return (
@@ -24,7 +39,7 @@ const LoginPages = () => {
                     {errors.password && <span className='text-red-600'>{errors.password.message}</span>}
 
                     <button className="btn btn-neutral mt-4">Login</button>
-                    <p className='text-center'>Don't have a Acount ?
+                    <p className='text-center'>Don&apos;t have a Acount ?
                         <Link href={'/register'} className='font-bold px-2 text-blue-700 hover:text-pink-900'>Register</Link></p>
                 </fieldset>
             </form>

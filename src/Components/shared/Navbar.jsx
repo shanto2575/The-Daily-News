@@ -18,7 +18,7 @@ const Navbar = () => {
                 <ul className='flex justify-between items-center gap-3 text-gray-600'>
                     <li><NavLink href={'/'}>Home</NavLink></li>
                     <li><NavLink href={'/about-us'}>About</NavLink></li>
-                    <li><NavLink href={'/career'}>Career</NavLink></li>
+                    <li><NavLink href={'/contact-us'}>Contact</NavLink></li>
                 </ul>
                 { isPending ? <span className="loading loading-infinity loading-xl text-accent"></span> :
                     user ? <div className='flex items-center justify-between gap-3'>

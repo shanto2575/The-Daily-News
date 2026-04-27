@@ -12,7 +12,7 @@ const ContactUsPage = () => {
             <div className="text-center mb-10">
                 <h1 className="text-4xl font-bold mb-3">Contact Us</h1>
                 <p className="text-gray-500">
-                    Have questions, news tips, or feedback? We'd love to hear from you.
+                    Have questions, news tips, or feedback? We&apos;d love to hear from you.
                 </p>
             </div>
 

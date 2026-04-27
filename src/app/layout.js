@@ -20,6 +20,7 @@ export const montserrat=Montserrat({
 export const metadata = {
   title: "Dragon News",
   description: "Best News Peper in Bangladesh",
+  
 };
 
 export default function RootLayout({ children }) {
